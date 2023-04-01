@@ -1,4 +1,7 @@
 import torch
+import warnings
+
+warnings.filterwarnings('ignore')
 
 def detect_elements(image_path, p=0.5):
     '''
