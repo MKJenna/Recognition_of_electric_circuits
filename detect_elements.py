@@ -25,5 +25,5 @@ def detect_elements(image_path, p=0.5):
     # get classes and coordinations
     df_results = model(image_path)
     df_results = df_results.pandas().xyxy[0] 
-    df_results = df_results[annotation['confidence'] >= p]
+    df_results = df_results[df_results['confidence'] >= p]
     return df_results
