@@ -9,6 +9,8 @@ import warnings
 
 warnings.filterwarnings('ignore')
 
+
+
 def detect_elements(image_path, p=0.5):
     '''
     Recognizes elements in an electrical circuit
@@ -37,6 +39,9 @@ def detect_elements(image_path, p=0.5):
     df_results = df_results[df_results['confidence'] >= p]
     return df_results
 
+
+
+
 def draw_boxes(image_path, df_results, show_elements=['all'], display_names=False, download=False, download_name='detected_elements.jpg'):
     '''
     Draws frames around found objects 
@@ -62,12 +67,8 @@ def draw_boxes(image_path, df_results, show_elements=['all'], display_names=Fals
         Specifies whether to save image with boxes and texts
     
     download_name: str
-        Path for saving image
-        
+        Path for saving image   
     '''
-    
-
-
     # load image
     image = cv2.imread(image_path, cv2.IMREAD_COLOR)
 
