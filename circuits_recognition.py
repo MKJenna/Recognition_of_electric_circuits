@@ -130,6 +130,10 @@ def text_recognition(image_path, df_results, languages=['en'], missing_attribute
     missing_attribute: None or str
         Filler for objects that do not have a text attribute attached
  
+    Returns
+    ----------
+    df_results : pd.DataFrame
+        df_results with text atttibutes
     '''
     
     # load model for text recognition
@@ -163,11 +167,11 @@ def text_recognition(image_path, df_results, languages=['en'], missing_attribute
     
     # add attributes
     attribute_list = []
-    for index, row in df_model_res.iterrows():
+    for index, row in df_results.iterrows():
         if index not in object_text:
             attribute_list.append(missing_attribute)
         else:
-            text_row = df_model_res.iloc[object_text[index]]
+            text_row = df_results.iloc[object_text[index]]
             image = cv2.imread(ex)
             image_crop = image[int(text_row.ymin)+1:int(text_row.ymax)+1, int(text_row.xmin)-1:int(text_row.xmax-1)].copy()
             cv2_imshow(image_crop)
