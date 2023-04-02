@@ -175,7 +175,7 @@ def text_recognition(image_path, df_results, languages=['en'], missing_attribute
             image = cv2.imread(image_path)
             image_crop = image[int(text_row.ymin)+1:int(text_row.ymax)+1, int(text_row.xmin)-1:int(text_row.xmax-1)].copy()
             text_result = reader.readtext(image_crop, detail=0)
-            attribute_list.append(np.array(text_result).item()
+            attribute_list.append(np.array(text_result).item())
     df_results['attribute'] = attribute_list
             
     return df_results
