@@ -14,7 +14,7 @@ warnings.filterwarnings('ignore')
 
 
 
-def detect_elements(image_path, p=0.5):
+def detect_elements(image_path, p=0.5, weights='yolo_weights.pt'):
     '''
     Recognizes elements in an electrical circuit
         
@@ -35,7 +35,7 @@ def detect_elements(image_path, p=0.5):
     df_results : pd.DataFrame
     '''
     # load model with pre-traind weights
-    model = torch.hub.load('ultralytics/yolov5', 'custom', 'yolo_weights.pt', _verbose=False) 
+    model = torch.hub.load('ultralytics/yolov5', 'custom', weights, _verbose=False) 
     # get classes and coordinations
     df_results = model(image_path)
     df_results = df_results.pandas().xyxy[0] 
