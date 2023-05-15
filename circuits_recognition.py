@@ -29,6 +29,9 @@ def detect_elements(image_path, p=0.5, weights='yolo_weights.pt'):
         If an item is recognized with a probability lower
         than the specified one, it will not be included.
         
+    weights: str, default='yolo_weights.pt'
+        The pre-trained weights used for YOLOv5 model tems
+        
     
     Returns
     ----------
